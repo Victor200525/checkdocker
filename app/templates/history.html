@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>История запросов</title>
+</head>
+<body>
+    <h1>История запросов</h1>
+    <ul>
+        {% for item in items %}
+            <li>{{ item.text }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Назад</a>
+</body>
+</html>

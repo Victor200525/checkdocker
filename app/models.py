@@ -1,13 +1,8 @@
-from sqlalchemy import Table, Column, Integer, String
-from .database import metadata, engine
+from sqlalchemy import Column, Integer, String
+from .database import Base
 
-# Таблица с твоими сообщениями
-messages = Table(
-    "msg",  # имя таблицы
-    metadata,
-    Column("id", Integer, primary_key=True),
-    Column("text", String),  # колонка с сообщением
-)
+class Request(Base):
+    __tablename__ = "requests"
 
-# Создаём таблицу, если её нет
-metadata.create_all(engine)
+    id = Column(Integer, primary_key=True, index=True)
+    text = Column(String, nullable=False)

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Запросы</title>
+</head>
+<body>
+    <h1>Добавить запрос</h1>
+    <form action="/add" method="post">
+        <input type="text" name="text" placeholder="Введите текст" required>
+        <button type="submit">Send</button>
+    </form>
+
+    {% if message %}
+        <p style="color:green">{{ message }}</p>
+    {% endif %}
+
+    <a href="/history">Посмотреть историю моих запросов</a>
+</body>
+</html>

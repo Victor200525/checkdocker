@@ -1,7 +1,9 @@
-from sqlalchemy import create_engine, MetaData
+from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.orm import sessionmaker, declarative_base
 
-# Путь к базе внутри проекта/контейнера
-DATABASE_URL = "sqlite:///./check.db"
+DATABASE_URL = "sqlite:///./data/check.db"
+
 
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
-metadata = MetaData()
+SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
+Base = declarative_base()
